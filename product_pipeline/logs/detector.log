@@ -1,0 +1,45 @@
+ * Serving Flask app 'app'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.183:5001
+[33mPress CTRL+C to quit[0m
+/home/dhivakar/AI_project/inflect_project/product_pipeline/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py:435: UserWarning: 
+    Found GPU0 Quadro M6000 24GB which is of cuda capability 5.2.
+    Minimum and Maximum cuda capability supported by this version of PyTorch is
+    (7.0) - (12.0)
+    
+  queued_call()
+/home/dhivakar/AI_project/inflect_project/product_pipeline/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py:435: UserWarning: 
+    Please install PyTorch with a following CUDA
+    configurations:  12.6 following instructions at
+    https://pytorch.org/get-started/locally/
+    
+  queued_call()
+/home/dhivakar/AI_project/inflect_project/product_pipeline/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py:435: UserWarning: 
+Quadro M6000 24GB with CUDA capability sm_52 is not compatible with the current PyTorch installation.
+The current PyTorch install supports CUDA capabilities sm_70 sm_75 sm_80 sm_86 sm_90 sm_100 sm_120.
+If you want to use the Quadro M6000 24GB GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
+
+  queued_call()
+127.0.0.1 - - [23/Mar/2026 18:04:02] "POST /detect HTTP/1.1" 200 -
+127.0.0.1 - - [23/Mar/2026 18:04:14] "POST /detect HTTP/1.1" 200 -
+127.0.0.1 - - [23/Mar/2026 18:04:16] "POST /detect HTTP/1.1" 200 -
+127.0.0.1 - - [23/Mar/2026 18:04:20] "POST /detect HTTP/1.1" 200 -
+127.0.0.1 - - [23/Mar/2026 18:04:25] "POST /detect HTTP/1.1" 200 -
+127.0.0.1 - - [23/Mar/2026 18:04:37] "POST /detect HTTP/1.1" 200 -
+127.0.0.1 - - [23/Mar/2026 18:04:41] "POST /detect HTTP/1.1" 200 -
+127.0.0.1 - - [23/Mar/2026 18:04:46] "POST /detect HTTP/1.1" 200 -
+127.0.0.1 - - [23/Mar/2026 18:04:51] "POST /detect HTTP/1.1" 200 -
+127.0.0.1 - - [23/Mar/2026 18:05:07] "POST /detect HTTP/1.1" 200 -
+127.0.0.1 - - [23/Mar/2026 18:05:14] "POST /detect HTTP/1.1" 200 -
+127.0.0.1 - - [23/Mar/2026 18:05:18] "POST /detect HTTP/1.1" 200 -
+127.0.0.1 - - [23/Mar/2026 18:05:21] "POST /detect HTTP/1.1" 200 -
+127.0.0.1 - - [23/Mar/2026 18:05:29] "POST /detect HTTP/1.1" 200 -
+127.0.0.1 - - [23/Mar/2026 18:05:36] "POST /detect HTTP/1.1" 200 -
+127.0.0.1 - - [23/Mar/2026 18:05:44] "POST /detect HTTP/1.1" 200 -
+127.0.0.1 - - [23/Mar/2026 18:05:51] "POST /detect HTTP/1.1" 200 -
+127.0.0.1 - - [23/Mar/2026 18:06:00] "POST /detect HTTP/1.1" 200 -
+127.0.0.1 - - [23/Mar/2026 18:06:26] "POST /detect HTTP/1.1" 200 -
+127.0.0.1 - - [23/Mar/2026 18:06:40] "POST /detect HTTP/1.1" 200 -

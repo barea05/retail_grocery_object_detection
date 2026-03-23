@@ -1,0 +1,13 @@
+flask
+flask-cors
+requests
+python-dotenv
+Pillow
+numpy
+opencv-python-headless
+scikit-learn
+torch
+torchvision
+ultralytics
+open_clip_torch
+easyocr

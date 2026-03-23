@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product Brand Grouping Pipeline</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 24px;
+      }
+      .row {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+      .card {
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        padding: 16px;
+        min-width: 320px;
+      }
+      pre {
+        background: #111;
+        color: #eee;
+        padding: 12px;
+        border-radius: 12px;
+        overflow: auto;
+        max-height: 520px;
+      }
+      img {
+        max-width: 520px;
+        border-radius: 12px;
+        border: 1px solid #ddd;
+      }
+      label {
+        display: block;
+        margin: 8px 0 4px;
+      }
+      input[type="number"] {
+        width: 120px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Product Brand Grouping Pipeline</h2>
+    <div class="row">
+      <div class="card">
+        <form id="uploadForm">
+          <label>Image</label>
+          <input type="file" name="image" accept="image/*" required />
+
+          <label>min_confidence</label>
+          <input type="number" name="min_confidence" value="0.15" step="0.05" min="0" max="1" />
+
+          <label>max_objects</label>
+          <input type="number" name="max_objects" value="120" min="1" />
+
+          <label>imgsz (detector)</label>
+          <input type="number" name="imgsz" value="960" min="320" />
+
+          <label>dbscan_eps (grouper)</label>
+          <input type="number" name="dbscan_eps" value="0.18" step="0.02" min="0.01" max="2" />
+
+          <label>dbscan_min_samples (grouper)</label>
+          <input type="number" name="dbscan_min_samples" value="1" min="1" />
+
+          <label>agglo_distance_threshold (fallback split)</label>
+          <input type="number" name="agglo_distance_threshold" value="0.22" step="0.02" min="0.05" max="1.0" />
+
+          <label>ocr_conf_threshold (text grouping)</label>
+          <input type="number" name="ocr_conf_threshold" value="0.25" step="0.05" min="0.0" max="1.0" />
+
+          <div style="margin-top: 12px;">
+            <button type="submit">Infer</button>
+          </div>
+        </form>
+        <p style="margin-top: 10px; color: #555;">
+          Runs: main API -> detector service -> grouping service -> saves a color-coded visualization.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Visualization</h3>
+        <div>
+          <img id="vizImg" alt="visualization will appear here" style="display:none;" />
+        </div>
+        <h3>Response JSON</h3>
+        <pre id="respPre">{}</pre>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById('uploadForm');
+      const respPre = document.getElementById('respPre');
+      const vizImg = document.getElementById('vizImg');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const res = await fetch('/api/infer', { method: 'POST', body: formData });
+        const data = await res.json();
+        respPre.textContent = JSON.stringify(data, null, 2);
+
+        if (data.visualization && data.visualization.url) {
+          vizImg.src = data.visualization.url;
+          vizImg.style.display = 'block';
+        }
+      });
+    </script>
+  </body>
+</html>
+
